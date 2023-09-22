@@ -19,7 +19,7 @@ docker run -d --env-file env --rm  -p 127.0.0.1:25:25 $IMAGE
 ```shell
 ## environment
 POSTFIX_RELAY_HOST=[smtp.example.com]:587 ## smart relay host 
-POSTFIX_RELAY_USER=admin@you.tld ## smtp  user
+POSTFIX_RELAY_USER=admin@you.tld ## smtp user
 POSTFIX_RELAY_PASS=passWord      ## smtp pass
 ```
 
