@@ -11,7 +11,7 @@ docker run --env-file env -p 25:25 ghcr.io/takuya/docker-postfix-smart-relay
 pull image from GitHub's container registry. 
 ```shell
 mkdir working; cd working
-cat <<EOF> env
+cat <<EOF > env
 ## environment
 POSTFIX_RELAY_HOST=[smtp.example.com]:587
 POSTFIX_RELAY_USER=admin@from.tld
