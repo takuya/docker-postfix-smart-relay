@@ -45,3 +45,37 @@ POSTFIX_RELAY_USER=admin@you.tld ## smtp user
 POSTFIX_RELAY_PASS=passWord      ## smtp pass
 ```
 
+## when 'Relay access denied' occurred.
+Default allowed network is `127.0.0.0/8, 172.16.0.0/12,192.168.0.0/16`
+
+Add or change `ENV[POSTFIX_RELAY_MYNET]` as follows.
+```shell
+POSTFIX_RELAY_MYNET='127.0.0.0/8 192.168.2.0/24'
+```
+
+## docker compose 
+```shell
+vim docker-compose.yaml
+docker compose up 
+```
+docker-compose.yaml 
+```yaml
+version: "3.7"
+services:
+  smart_relay:
+    image: ghcr.io/takuya/docker-postfix-smart-relay:latest
+    container_name: postfix_relay
+    hostname: postfix_relay
+    environment:
+      TZ: 'Asia/Tokyo'
+      POSTFIX_RELAY_MYNET: '127.0.0.0/8 192.168.100.0/24'
+      POSTFIX_RELAY_HOST: '[smtp.example.tld]:587'
+      POSTFIX_RELAY_USER: 'admin@from.tld'
+      POSTFIX_RELAY_PASS: 'password'
+      DOCKER_NETWORK: host
+      LOG_LEVEL: "3"
+      DEBUG: "true"
+    network_mode: host
+```
+
+
