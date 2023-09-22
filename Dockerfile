@@ -2,7 +2,7 @@ FROM debian:stable
 
 WORKDIR /root
 
-#### apt instal
+#### apt install
 COPY apt-conf/01-nodoc /etc/dpkg/dpkg.cfg.d/01-nodoc
 COPY apt-conf/02-no-suggests /etc/apt/apt.conf.d/00-no-install-recommends
 RUN echo start ;\
