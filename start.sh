@@ -11,4 +11,4 @@ fi
 ##
 postmap /etc/postfix/sasl_passwd
 ##
-/usr/sbin/postfix start-fg
+exec /usr/sbin/postfix start-fg
