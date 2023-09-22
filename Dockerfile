@@ -19,7 +19,7 @@ RUN echo 'smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd ' >> /etc/post
     echo 'smtp_sasl_mechanism_filter = plain'            >> /etc/postfix/main.cf ;\
     echo 'maillog_file = /dev/stdout'                    >> /etc/postfix/main.cf ;\
     sed -e 's/^inet_protocols = all/inet_protocols = ipv4/' -i /etc/postfix/main.cf ;\
-    sed -e 's|^mynetworks =.*$|mynetworks = 127.0.0.0/8 172.16.0.0/12|' -i /etc/postfix/main.cf ;\
+    sed -e 's|^mynetworks =.*$|mynetworks = 127.0.0.0/8 172.16.0.0/12 192.168.0.0/16 |' -i /etc/postfix/main.cf ;\
     sed -e 's|smtp\s*unix.*smtp|smtp  unix  -  -  n  -  -  smtp|' -i /etc/postfix/master.cf ;\
     echo end;
 
